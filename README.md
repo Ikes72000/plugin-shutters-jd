@@ -1,1 +1,1 @@
-plugin-shutters-jd
+plugin-shutters-nd
