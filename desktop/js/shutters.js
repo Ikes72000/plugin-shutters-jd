@@ -15,3 +15,21 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+function printEqLogic(_eqLogic) {
+    
+    console.log('function printEqLogic()');
+    console.log('eqLogic =>' . _eqLogic);
+
+    if (!isset(_eqLogic)) {
+        var _eqLogic = {configuration: {}};
+    }
+    
+    if (!isset(_eqLogic.configuration)) {
+        _eqLogic.configuration = {};
+    }
+
+    if ($('[data-l1key=configuration][data-l2key=eqLogicType]').val() !== null) {
+        $('[data-l1key=configuration][data-l2key=eqLogicType]').attr('disabled', true);
+    }
+
+}
