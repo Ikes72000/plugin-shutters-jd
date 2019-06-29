@@ -68,8 +68,8 @@ $eqLogics = eqLogic::byType($plugin->getId());
             <br>
             <div id="objectList" class="panel-group" >
                 <div class="panel panel-default">
-                    <div class="panel-heading-shutters">
-                        <h4 class="panel-title-shutters">
+                    <div class="panel-heading panel-heading-shutters">
+                        <h4 class="panel-title panel-title-shutters">
                             <a data-toggle="collapse" data-parent="#objectList" href="#externalInfoObjectList"> 
                                 {{Mes conditions externes}} 
                                 <span class="badge">
@@ -106,8 +106,8 @@ $eqLogics = eqLogic::byType($plugin->getId());
                     </div>
                 </div>  
                 <div class="panel panel-default">
-                    <div class="panel-heading-shutters">
-                        <h4 class="panel-title-shutters">
+                    <div class="panel-heading panel-heading panel-heading-shutters">
+                        <h4 class="panel-title panel-title-shutters">
                             <a data-toggle="collapse" data-parent="#objectList" href="#heliotropeZoneObjectList"> 
                                 {{Mes zones héliotrope}} 
                                 <span class="badge">
@@ -148,8 +148,8 @@ $eqLogics = eqLogic::byType($plugin->getId());
                     </div>
                 </div>  
                 <div class="panel panel-default">
-                    <div class="panel-heading-shutters">
-                        <h4 class="panel-title-shutters">
+                    <div class="panel-heading panel-heading panel-heading-shutters">
+                        <h4 class="panel-title panel-title-shutters">
                             <a data-toggle="collapse" data-parent="#objectList" href="#shuttersGroupObjectList"> 
                                 {{Mes groupes de volets}}
                                 <span class="badge">
@@ -186,8 +186,8 @@ $eqLogics = eqLogic::byType($plugin->getId());
                     </div>
                 </div>  
                 <div class="panel panel-default">
-                    <div class="panel-heading-shutters">
-                        <h4 class="panel-title-shutters">
+                    <div class="panel-heading panel-heading-shutters">
+                        <h4 class="panel-title panel-title-shutters">
                             <a data-toggle="collapse" data-parent="#objectList" href="#shutterObjectList"> 
                                 {{Mes volets}}
                                 <span class="badge">
