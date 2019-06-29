@@ -18,7 +18,6 @@
 function printEqLogic(_eqLogic) {
     
     console.log('function printEqLogic()');
-    console.log('eqLogic =>' . _eqLogic);
 
     if (!isset(_eqLogic)) {
         var _eqLogic = {configuration: {}};
