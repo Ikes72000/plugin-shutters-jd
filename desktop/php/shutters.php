@@ -63,18 +63,57 @@ $eqLogics = eqLogic::byType($plugin->getId());
                     <span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;color:#767676">{{Configuration}}</span>
                 </div>
             </div>
+            <div id="objectList" class="panel-group" >
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#objectList" href="#externalInfoObjectList"> {{Mes conditions externes}} </a>
+                            <span class="badge">
+                                <?php
+                                    $objectNumber =0;
+                                    foreach ($eqLogics as $eqLogic) {
+                                        if ($eqLogic->getConfiguration('eqType') == 'externalConditions') {
+                                            ++$objectNumber;
+                                        } 
+                                    }
+                                    echo $objectNumber;
+                                ?>
+                            </span>
+                        </h4>
+                    </div>
+                    <div id="externalInfoObjectList" class="panel-collapse collapse in">
+                        <div class="panel-body"> 
+                            <div class="eqLogicThumbnailContainer">
+                                <?php
+                                    foreach ($eqLogics as $eqLogic) {
+                                        if ($eqLogic->getConfiguration('eqType') == 'externalConditions') {
+                                            $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
+                                            echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="text-align: center; background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
+                                            echo '<img src="plugins/shutters/resources/images/externalConditions.png" height="100" width="100" />';
+                                            echo "<br>";
+                                            echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;">' . $eqLogic->getHumanName(true, true) . '</span>';
+                                            echo '</div>';
+                                        }
+                                    }
+                                ?>
+                            </div>
+                        </div> 
+                    </div>
+                </div>  
+            </div>  
+
             <legend><i class="fa fa-table"></i> {{Mes conditions externes}}</legend>
             <div class="eqLogicThumbnailContainer">
             <?php
                 foreach ($eqLogics as $eqLogic) {
-                    //if ($eqLogic->getConfiguration('eqLogicType') == 'externalConditions') {
+                    if ($eqLogic->getConfiguration('eqLogicType') == 'externalConditions') {
                         $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
                         echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="text-align: center; background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
                         echo '<img src="plugins/shutters/resources/images/externalConditions.png" height="100" width="100" />';
                         echo "<br>";
                         echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;">' . $eqLogic->getHumanName(true, true) . '</span>';
                         echo '</div>';
-                    //}
+                    }
                 }
             ?>
             </div>
@@ -219,22 +258,6 @@ $eqLogics = eqLogic::byType($plugin->getId());
                 <div role="tabpanel" class="tab-pane" id="settingsTab">
                 </div>
                 <div role="tabpanel" class="tab-pane" id="commandTab">
-                    <a class="btn btn-success btn-sm cmdAction pull-right" data-action="add" style="margin-top:5px;">
-                        <i class="fa fa-plus-circle"></i> {{Commandes}}
-                    </a>
-                    <br/>
-                    <br/>
-                    <table id="table_cmd" class="table table-bordered table-condensed">
-                        <thead>
-                        <tr>
-                            <th>{{Nom}}</th>
-                            <th>{{Type}}</th>
-                            <th>{{Action}}</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
                 </div>
             </div>
 
