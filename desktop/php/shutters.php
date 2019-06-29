@@ -50,7 +50,6 @@ $eqLogics = eqLogic::byType($plugin->getId());
 
         <div class="col-lg-10 col-md-9 col-sm-8 eqLogicThumbnailDisplay"
              style="border-left: solid 1px #EEE; padding-left: 25px;">
-            <legend>{{Mes Objets}}</legend>
             <legend><i class="fa fa-cog"></i> {{Gestion}}</legend>
             <div class="eqLogicThumbnailContainer">
                 <div class="cursor eqLogicAction" data-action="add"
@@ -66,106 +65,165 @@ $eqLogics = eqLogic::byType($plugin->getId());
                     <span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;color:#767676">{{Configuration}}</span>
                 </div>
             </div>
+            <br>
             <div id="objectList" class="panel-group" >
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#objectList" href="#externalInfoObjectList"> 
-                            {{Mes conditions externes}}
-                            <span class="badge">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#objectList" href="#externalInfoObjectList"> 
+                                {{Mes conditions externes}} 
+                                <span class="badge">
+                                    <?php
+                                        $objectNumber =0;
+                                        foreach ($eqLogics as $eqLogic) {
+                                            if ($eqLogic->getConfiguration('eqLogicType') == 'externalConditions') {
+                                                ++$objectNumber;
+                                            } 
+                                        }
+                                        echo $objectNumber;
+                                    ?>
+                                </span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="externalInfoObjectList" class="panel-collapse collapse in">
+                        <div class="panel-body"> 
+                            <div class="eqLogicThumbnailContainer">
                                 <?php
-                                    $objectNumber =0;
                                     foreach ($eqLogics as $eqLogic) {
-                                        if ($eqLogic->getConfiguration('eqType') == 'externalConditions') {
-                                            ++$objectNumber;
-                                        } 
+                                        if ($eqLogic->getConfiguration('eqLogicType') == 'externalConditions') {
+                                            $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
+                                            echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="text-align: center; background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
+                                            echo '<img src="plugins/shutters/resources/images/externalConditions.png" height="100" width="100" />';
+                                            echo "<br>";
+                                            echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;">' . $eqLogic->getHumanName(true, true) . '</span>';
+                                            echo '</div>';
+                                        }
                                     }
-                                    echo $objectNumber;
                                 ?>
-                            </span>
-                        </a>
-                    </h4>                    
-                </div>
-                <div id="externalInfoObjectList" class="panel-collapse collapse in">
-                    <div class="panel-body"> 
-                        <div class="eqLogicThumbnailContainer">
-                            <?php
-                                foreach ($eqLogics as $eqLogic) {
-                                    if ($eqLogic->getConfiguration('eqLogicType') == 'externalConditions') {
-                                        $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
-                                        echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="text-align: center; background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
-                                        echo '<img src="plugins/shutters/resources/images/externalConditions.png" height="100" width="100" />';
-                                        echo "<br>";
-                                        echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;">' . $eqLogic->getHumanName(true, true) . '</span>';
-                                        echo '</div>';
+                            </div>
+                        </div> 
+                    </div>
+                </div>  
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#objectList" href="#heliotropeZoneObjectList"> 
+                                {{Mes zones héliotrope}} 
+                                <span class="badge">
+                                    <?php
+                                        $objectNumber =0;
+                                        foreach ($eqLogics as $eqLogic) {
+                                            if ($eqLogic->getConfiguration('eqLogicType') == 'heliotropeZone') {
+                                                ++$objectNumber;
+                                            } 
+                                        }
+                                        echo $objectNumber;
+                                    ?>
+                                </span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="heliotropeZoneObjectList" class="panel-collapse collapse">
+                        <div class="panel-body"> 
+                            <div class="eqLogicThumbnailContainer">
+                                <?php
+                                    foreach ($eqLogics as $eqLogic) {
+                                        if ($eqLogic->getConfiguration('eqLogicType') == 'heliotropeZone') {
+                                            $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
+                                            echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="text-align: center; background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
+                                            echo '<img src="plugins/shutters/resources/images/heliotropeZone.png" height="100" width="100" />';
+                                            echo "<br>";
+                                            echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;">' . $eqLogic->getHumanName(true, true) . '</span>';
+                                            $externalInfoObject = $eqLogic->getConfiguration('externalInfoObject');
+                                            if ($externalInfoObject != null && $externalInfoObject != 'none') {
+                                                echo '<span><i class="fas fa-link">' . eqLogic::byId($externalInfoObject)->getName() . '</i></span>';
+                                            }
+                                            echo '</div>';
+                                        }
                                     }
-                                }
-                            ?>
-                        </div>
-                    </div> 
-                </div>
-            </div>  
-
-            <legend><i class="fa fa-table"></i> {{Mes conditions externes}}</legend>
-            <div class="eqLogicThumbnailContainer">
-            <?php
-                foreach ($eqLogics as $eqLogic) {
-                    if ($eqLogic->getConfiguration('eqLogicType') == 'externalConditions') {
-                        $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
-                        echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="text-align: center; background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
-                        echo '<img src="plugins/shutters/resources/images/externalConditions.png" height="100" width="100" />';
-                        echo "<br>";
-                        echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;">' . $eqLogic->getHumanName(true, true) . '</span>';
-                        echo '</div>';
-                    }
-                }
-            ?>
-            </div>
-            <legend><i class="fa fa-table"></i> {{Mes zones héliotrope}}</legend>
-            <div class="eqLogicThumbnailContainer">
-            <?php
-                foreach ($eqLogics as $eqLogic) {
-                    if ($eqLogic->getConfiguration('eqLogicType') == 'heliotropeZone') {
-                        $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
-                        echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="text-align: center; background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
-                        echo '<img src="plugins/shutters/resources/images/externalConditions.png" height="100" width="100" />';
-                        echo "<br>";
-                        echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;">' . $eqLogic->getHumanName(true, true) . '</span>';
-                        echo '</div>';
-                    }
-                }
-            ?>
-            </div>
-            <legend><i class="fa fa-table"></i> {{Mes groupes de volets}}</legend>
-            <div class="eqLogicThumbnailContainer">
-            <?php
-                foreach ($eqLogics as $eqLogic) {
-                    if ($eqLogic->getConfiguration('eqLogicType') == 'shuttersGroup') {
-                        $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
-                        echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="text-align: center; background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
-                        echo '<img src="plugins/shutters/resources/images/externalConditions.png" height="100" width="100" />';
-                        echo "<br>";
-                        echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;">' . $eqLogic->getHumanName(true, true) . '</span>';
-                        echo '</div>';
-                    }
-                }
-            ?>
-            </div>
-            <legend><i class="fa fa-table"></i> {{Mes volets}}</legend>
-            <div class="eqLogicThumbnailContainer">
-            <?php
-                foreach ($eqLogics as $eqLogic) {
-                    if ($eqLogic->getConfiguration('eqLogicType') == 'shutter') {
-                        $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
-                        echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="text-align: center; background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
-                        echo '<img src="plugins/shutters/resources/images/externalConditions.png" height="100" width="100" />';
-                        echo "<br>";
-                        echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;">' . $eqLogic->getHumanName(true, true) . '</span>';
-                        echo '</div>';
-                    }
-                }
-            ?>
-            </div>
+                                ?>
+                            </div>
+                        </div> 
+                    </div>
+                </div>  
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#objectList" href="#shuttersGroupObjectList"> 
+                                {{Mes groupes de volets}}
+                                <span class="badge">
+                                    <?php
+                                        $objectNumber =0;
+                                        foreach ($eqLogics as $eqLogic) {
+                                            if ($eqLogic->getConfiguration('eqLogicType') == 'shuttersGroup') {
+                                                ++$objectNumber;
+                                            } 
+                                        }
+                                        echo $objectNumber;
+                                    ?>
+                                </span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="shuttersGroupObjectList" class="panel-collapse collapse">
+                        <div class="panel-body"> 
+                            <div class="eqLogicThumbnailContainer">
+                                <?php
+                                    foreach ($eqLogics as $eqLogic) {
+                                        if ($eqLogic->getConfiguration('eqLogicType') == 'shuttersGroup') {
+                                            $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
+                                            echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="text-align: center; background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
+                                            echo '<img src="plugins/shutters/resources/images/shuttersGroup.png" height="100" width="100" />';
+                                            echo "<br>";
+                                            echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;">' . $eqLogic->getHumanName(true, true) . '</span>';
+                                            echo '</div>';
+                                        }
+                                    }
+                                ?>
+                            </div>
+                        </div> 
+                    </div>
+                </div>  
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#objectList" href="#shutterObjectList"> 
+                                {{Mes volets}}
+                                <span class="badge">
+                                    <?php
+                                        $objectNumber =0;
+                                        foreach ($eqLogics as $eqLogic) {
+                                            if ($eqLogic->getConfiguration('eqLogicType') == 'shutter') {
+                                                ++$objectNumber;
+                                            } 
+                                        }
+                                        echo $objectNumber;
+                                    ?>
+                                </span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="shutterObjectList" class="panel-collapse collapse">
+                        <div class="panel-body"> 
+                            <div class="eqLogicThumbnailContainer">
+                                <?php
+                                    foreach ($eqLogics as $eqLogic) {
+                                        if ($eqLogic->getConfiguration('eqLogicType') == 'shutter') {
+                                            $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
+                                            echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="text-align: center; background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
+                                            echo '<img src="plugins/shutters/resources/images/shutter.png" height="100" width="100" />';
+                                            echo "<br>";
+                                            echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;">' . $eqLogic->getHumanName(true, true) . '</span>';
+                                            echo '</div>';
+                                        }
+                                    }
+                                ?>
+                            </div>
+                        </div> 
+                    </div>
+                </div>  
+            </div> 
         </div>
 
         <div class="col-lg-10 col-md-9 col-sm-8 eqLogic"
