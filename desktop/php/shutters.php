@@ -78,7 +78,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
                 }
             ?>
             </div>
-            <legend><i class="fa fa-table"></i> {{Mes zones héliotropes}}</legend>
+            <legend><i class="fa fa-table"></i> {{Mes zones héliotrope}}</legend>
             <div class="eqLogicThumbnailContainer">
             <?php
                 foreach ($eqLogics as $eqLogic) {
@@ -136,18 +136,19 @@ $eqLogics = eqLogic::byType($plugin->getId());
                 <i class="fa fa-cogs"></i> {{Configuration avancée}}
             </a>
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation">
-                    <a href="#" class="eqLogicAction" aria-controls="home" role="tab" data-toggle="tab"
+                <li>
+                    <a href="#" class="eqLogicAction" data-toggle="tab"
                        data-action="returnToThumbnailDisplay">
                         <i class="fa fa-arrow-circle-left"></i>
                     </a>
                 </li>
-                <li role="presentation" class="active">
-                    <a href="#eqlogictab" aria-controls="home" role="tab" data-toggle="tab">
+                <li class="active">
+                    <a href="#eqlogictab" data-toggle="tab">
                         <i class="fa fa-tachometer"></i> {{Equipement}}
                     </a>
                 </li>
-                <li role="presentation"><a href="#commandtab" aria-controls="profile" role="tab" data-toggle="tab">
+                <li>
+                    <a href="#commandtab" data-toggle="tab">
                         <i class="fa fa-list-alt"></i> {{Commandes}}</a>
                 </li>
             </ul>
