@@ -307,6 +307,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
                                 <label class="col-sm-3 control-label" for="eqLogicType">{{Type d'équipement}}</label>
                                 <div class="col-sm-3">
                                     <select id="eqLogicType" class="eqLogicAttr form-control cursor" data-l1key="configuration" data-l2key="eqLogicType">
+                                        <option value="" selected></option>
                                         <option value="externalConditions">{{Conditions externes}}</option>
                                         <option value="heliotropeZone">{{Zone héliotrope}}</option>
                                         <option value="shuttersGroup">{{Groupe de volets}}</option>
