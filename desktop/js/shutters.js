@@ -28,7 +28,7 @@ function printEqLogic(_eqLogic) {
         _eqLogic.configuration = {};
     }
 
-    if ($('[data-l1key=configuration][data-l2key=eqLogicType]').val() !== null) {
+    if ($('[data-l1key=configuration][data-l2key=eqLogicType]').val() !== '') {
         $('[data-l1key=configuration][data-l2key=eqLogicType]').attr('disabled', true);
     } else {
         $('[data-l1key=configuration][data-l2key=eqLogicType]').attr('disabled', false);
