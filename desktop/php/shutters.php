@@ -63,18 +63,20 @@ $eqLogics = eqLogic::byType($plugin->getId());
                     <span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;color:#767676">{{Configuration}}</span>
                 </div>
             </div>
-            <legend><i class="fa fa-table"></i> {{Mes shutterss}}</legend>
+            <legend><i class="fa fa-table"></i> {{Mes conditions externes}}</legend>
             <div class="eqLogicThumbnailContainer">
-                <?php
+            <?php
                 foreach ($eqLogics as $eqLogic) {
-                    $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
-                    echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="text-align: center; background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
-                    echo '<img src="' . $plugin->getPathImgIcon() . '" height="105" width="95" />';
-                    echo "<br>";
-                    echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;">' . $eqLogic->getHumanName(true, true) . '</span>';
-                    echo '</div>';
+                    if ($eqLogic->getConfiguration('eqType') == 'externalConditions') {
+                        $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
+                        echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="text-align: center; background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
+                        echo '<img src="plugins/shutters/resources/images/externalConditions.png" height="100" width="100" />';
+                        echo "<br>";
+                        echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;">' . $eqLogic->getHumanName(true, true) . '</span>';
+                        echo '</div>';
+                    }
                 }
-                ?>
+            ?>
             </div>
         </div>
 
