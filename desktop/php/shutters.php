@@ -251,7 +251,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
                 </li>
             </ul>
             <div class="tab-content" style="height:calc(100% - 50px);overflow:auto;overflow-x: hidden;">
-                <div role="tabpanel" class="tab-pane active" id="eqLogicTab">
+                <div class="tab-pane active" id="eqLogicTab">
                     <br/>
                     <form class="form-horizontal">
                         <fieldset>
@@ -305,7 +305,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label" for="eqLogicType">{{Type d'équipement}}</label>
-                                <div class="col-sm-5">
+                                <div class="col-sm-3">
                                     <select id="eqLogicType" class="eqLogicAttr form-control cursor" data-l1key="configuration" data-l2key="eqLogicType">
                                         <option value="externalConditions">{{Conditions externes}}</option>
                                         <option value="heliotropeZone">{{Zone héliotrope}}</option>
@@ -317,9 +317,9 @@ $eqLogics = eqLogic::byType($plugin->getId());
                          </fieldset>
                     </form>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="settingsTab">
+                <div class="tab-pane" id="settingsTab">
                 </div>
-                <div role="tabpanel" class="tab-pane" id="commandTab">
+                <div class="tab-pane" id="commandTab">
                 </div>
             </div>
 

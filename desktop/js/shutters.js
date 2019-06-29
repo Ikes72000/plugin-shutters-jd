@@ -28,6 +28,8 @@ function printEqLogic(_eqLogic) {
         _eqLogic.configuration = {};
     }
 
+    $('#eqLogicTab').setValues(_eqLogic, '.eqLogicAttr'); 
+
     if ($('[data-l1key=configuration][data-l2key=eqLogicType]').val() !== null) {
         $('[data-l1key=configuration][data-l2key=eqLogicType]').attr('disabled', true);
     }
