@@ -39,4 +39,7 @@ function printEqLogic(_eqLogic) {
         $('[data-l1key=configuration][data-l2key=eqLogicType]').attr('disabled', false);
     }
 
+    //Display settings panels for selected eqLogic 
+    displaySettingsPanels(_eqLogic);
+
 }
