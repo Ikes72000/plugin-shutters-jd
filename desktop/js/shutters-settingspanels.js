@@ -6,24 +6,22 @@
 function displaySettingsPanels(_eqLogic) {
     var el = $('#settingsPanels');
     el.empty();
-    switch (_eqLogic.configuration.eqType) {
+    switch (_eqLogic.configuration.eqLogicType) {
         case 'externalConditions':
             
-            var div = '<div class="col-lg-10 col-md-9 col-sm-8 eqLogic" style="border-left: solid 1px #EEE; padding-left: 25px;display: none;">';
+            var div = '<div>';
             div += '<ul class="nav nav-tabs">';
             div += '<li class="active">';
-            div += '<a href="#primaryConditionsTab" data-toggle="tab"><i class="fa fa-tachometer"></i> {{Conditions primaires}}</a>';
+            div += '<a href="#primaryConditionsTab" data-toggle="tab"><i class="fas fa-tasks"></i> {{Conditions primaires}}</a>';
             div += '</li>';
             div += '<li>';
-            div += '<a href="#secondaryConditionsTab" data-toggle="tab"><i class="fa fa-wrench"></i> {{Conditions secondaires}}</a>';
+            div += '<a href="#secondaryConditionsTab" data-toggle="tab"><i class="fas fa-tasks"></i> {{Conditions secondaires}}</a>';
             div += '</li>';
             div += '</ul>';
             div += '<div class="tab-content" style="height:calc(100% - 50px);overflow:auto;overflow-x: hidden;">';
             div += '<div class="tab-pane active" id="primaryConditionsTab">';
-            div += '';
             div += '</div>';
-            div += '<div class="tab-pane active" id="secondaryConditionsTab">';
-            div += '';
+            div += '<div class="tab-pane" id="secondaryConditionsTab">';
             div += '</div>';
             div += '</div>';
             div += '</div>';
