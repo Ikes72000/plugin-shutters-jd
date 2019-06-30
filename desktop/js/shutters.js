@@ -15,6 +15,11 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+ /**
+  * Print eqLogic (core function)
+  * 
+  * @param {object} _eqLogic 
+  */
 function printEqLogic(_eqLogic) {
     
     console.log('function printEqLogic()');
@@ -27,7 +32,8 @@ function printEqLogic(_eqLogic) {
         _eqLogic.configuration = {};
     }
 
-    if ($('[data-l1key=configuration][data-l2key=eqLogicType]').val() !== $('#eqLogicType option:eq(1)').text()) {
+    //Disable the choice of equipment type
+    if ($('[data-l1key=configuration][data-l2key=eqLogicType]').val() !== null) {
         $('[data-l1key=configuration][data-l2key=eqLogicType]').attr('disabled', true);
     } else {
         $('[data-l1key=configuration][data-l2key=eqLogicType]').attr('disabled', false);
