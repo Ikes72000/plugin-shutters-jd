@@ -42,4 +42,8 @@ function printEqLogic(_eqLogic) {
     //Display settings panels for selected eqLogic 
     displaySettingsPanels(_eqLogic);
 
+    //Update display of settings
+    $('#settingsTab').setValues(_eqLogic, '.eqLogicAttr'); 
+
+
 }

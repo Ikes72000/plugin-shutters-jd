@@ -1,4 +1,21 @@
-/**
+/*
+ * This file is part of the NextDom software (https://github.com/NextDom or http://nextdom.github.io).
+ * Copyright (c) 2018 NextDom.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, version 2.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+ /**
  * Display settings panels for eqLogic
  * 
  * @param {object} _eqLogic
@@ -105,7 +122,7 @@ function displaySettingsPanels(_eqLogic) {
             div += '</select>';
             div += '</div>';
             div += '<div class="col-sm-1">';
-            div += '<input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="fireConditionName" value="Incendie" placeholder="{{Nom de la condition}}" disabled/>';
+            div += '<input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="fireConditionName" value="Incendie" placeholder="{{Saisir le nom}}" disabled/>';
             div += '</div>';
         	div += '</div>';
 
@@ -163,7 +180,7 @@ function displaySettingsPanels(_eqLogic) {
             div += '</select>';
             div += '</div>';
             div += '<div class="col-sm-1">';
-            div += '<input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="absenceCondition1Name" value="Absence (GF)" placeholder="{{Nom de la condition}}" disabled/>';
+            div += '<input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="absenceCondition1Name" value="Absence (GF)" placeholder="{{Saisir le nom}}" disabled/>';
             div += '</div>';
         	div += '</div>';
 
@@ -221,7 +238,7 @@ function displaySettingsPanels(_eqLogic) {
             div += '</select>';
             div += '</div>';
             div += '<div class="col-sm-1">';
-            div += '<input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="absenceCondition2Name" value="Absence (GA)" placeholder="{{Nom de la condition}}" disabled/>';
+            div += '<input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="absenceCondition2Name" value="Absence (GA)" placeholder="{{Saisir le nom}}" disabled/>';
             div += '</div>';
         	div += '</div>';
 
@@ -279,7 +296,7 @@ function displaySettingsPanels(_eqLogic) {
             div += '</select>';
             div += '</div>';
             div += '<div class="col-sm-1">';
-            div += '<input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="userCondition1Name" placeholder="{{Nom de la condition}}"/>';
+            div += '<input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="userCondition1Name" placeholder="{{Saisir le nom}}"/>';
             div += '</div>';
         	div += '</div>';
 
@@ -337,7 +354,7 @@ function displaySettingsPanels(_eqLogic) {
             div += '</select>';
             div += '</div>';
             div += '<div class="col-sm-1">';
-            div += '<input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="userCondition2Name" placeholder="{{Nom de la condition}}"/>';
+            div += '<input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="userCondition2Name" placeholder="{{Saisir le nom}}"/>';
             div += '</div>';
         	div += '</div>';
         
