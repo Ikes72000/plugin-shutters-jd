@@ -15,6 +15,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-$('select[data-l1key=configuration][data-l2key$=Priority]').off('change').on('change', function () {
-    console.log($(this).val());
-});
+/**
+ * Init view events for eqlogic 'external conditions'
+ */
+function initExternalConditionsViewEvents() {
+
+    $('select[data-l1key=configuration][data-l2key$=Priority]').off('change').on('change', function () {
+        console.log($(this).val());
+    })
+
+}

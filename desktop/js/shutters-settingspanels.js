@@ -18,13 +18,13 @@
  /**
  * Display settings panels for eqLogic
  * 
- * @param {object} _eqLogic
+ * @param {string} _eqLogicType
  */
-function displaySettingsPanels(_eqLogic) {
+function displaySettingsPanels(_eqLogicType = '') {
     var el = $('#settingsTab');
     var div = '';
 
-    switch (_eqLogic.configuration.eqLogicType) {
+    switch (_eqLogicType) {
         case 'externalConditions':
             
             div += '<br/>';

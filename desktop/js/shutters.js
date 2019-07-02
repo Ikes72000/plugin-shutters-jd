@@ -39,8 +39,22 @@ function printEqLogic(_eqLogic) {
         $('[data-l1key=configuration][data-l2key=eqLogicType]').attr('disabled', false);
     }
 
+    switch(_eqLogic.configuration.eqLogicType) {
+        case 'externalConditions':
+            initExternalConditionsViewEvents();
+            break;
+        case 'heliotropeZone':
+            break;
+        case 'shuttersGroup':
+            break;
+        case 'shutter':
+            break;
+        default:
+            break;
+    }
+
     //Display settings panels for selected eqLogic 
-    displaySettingsPanels(_eqLogic);
+    displaySettingsPanels(_eqLogic.configuration.eqLogicType);
 
     //Update display of eqLogic settings
     $('#settingsTab').setValues(_eqLogic, '.eqLogicAttr'); 
