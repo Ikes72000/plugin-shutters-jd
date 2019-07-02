@@ -331,4 +331,6 @@ $eqLogics = eqLogic::byType($plugin->getId());
 include_file('desktop', 'shutters', 'js', 'shutters');
 include_file('desktop', 'shutters-settingspanels', 'js', 'shutters');
 
+include_file('desktop', 'shutters-events', 'js', 'shutters');
+
 include_file('core', 'plugin.template', 'js');
