@@ -1,0 +1,36 @@
+{
+    "priorityConditions": [
+        {
+            "name": "Incendie",
+            "type":  "Détection incendie",
+            "enabled": 0,
+            "priority": -1,
+            "action": 100,
+            "locked": true
+        },
+        {
+            "name": "Absence",
+            "type":  "Absence (fermeture volets)",
+            "enabled": 0,
+            "priority": -1,
+            "action": 0,
+            "locked": true
+        },
+        {
+            "name": "Absence",
+            "type":  "Absence (gestion auto)",
+            "enabled": 0,
+            "priority": -1,
+            "action": -2,
+            "locked": true
+        },
+        {
+            "name": "Incendie",
+            "type":  "Détection incendie",
+            "enabled": 0,
+            "priority": -1,
+            "action": 100,
+            "locked": true
+        }
+    ]
+}

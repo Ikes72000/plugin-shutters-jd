@@ -39,6 +39,9 @@ function printEqLogic(_eqLogic) {
         $('[data-l1key=configuration][data-l2key=eqLogicType]').attr('disabled', false);
     }
 
+    //Display settings panels for selected eqLogic 
+    displaySettingsPanels(_eqLogic.configuration.eqLogicType);
+
     switch(_eqLogic.configuration.eqLogicType) {
         case 'externalConditions':
             initExternalConditionsViewEvents();
@@ -52,9 +55,6 @@ function printEqLogic(_eqLogic) {
         default:
             break;
     }
-
-    //Display settings panels for selected eqLogic 
-    displaySettingsPanels(_eqLogic.configuration.eqLogicType);
 
     //Update display of eqLogic settings
     $('#settingsTab').setValues(_eqLogic, '.eqLogicAttr'); 
