@@ -50,7 +50,7 @@ function displaySettingsPanels(_eqLogicType = '') {
             div += '<h5 class="text-center"><span class="label label-default">{{Condition}}</span></h5>';  
             div += '</div>';
         	div += '<div class="col-sm-1">';
-            div += '<h5 class="text-center"><span class="label label-default">{{Active}}</span></h5>';  
+            div += '<h5 class="text-center"><span class="label label-default">{{Surveillance}}</span></h5>';  
             div += '</div>';
         	div += '<div class="col-sm-1">';
             div += '<h5 class="text-center"><span class="label label-default">{{Priorité}}</span></h5>';  
@@ -68,20 +68,22 @@ function displaySettingsPanels(_eqLogicType = '') {
             div += '<h5 class="text-center"><span class="label label-default">{{Nom de la condition}}</span></h5>';
             div += '</div>';
             div += '</div>';
-            div += '<br/>';
+            div += '</div>';
             div += '<br/>';
 
             for (var i=1; i<=10; i++) {
-           	div += '<div class="form-group">';
+            div += '<div class="row">';
+            div += '<div class="form-group">';
             div += '<div class="col-sm-2">';
             div += '<select type="text" class="eqLogicAttr form-control cursor" data-l1key="configuration" data-l2key="priorityCondition' + i + 'Type">';
             div += '<option value="0" selected>{{Non définie}}</option>';
             div += '</select>';
             div += '</div>';
             div += '<div class="col-sm-1">';
-            div += '<select type="text" class="eqLogicAttr form-control cursor" data-l1key="configuration" data-l2key="priorityCondition' + i + 'Enabled" disabled>';
-            div += '<option value="0" selected>{{Non}}</option>';
-            div += '<option value="1">{{Oui}}</option>';
+            div += '<select type="text" class="eqLogicAttr form-control cursor" data-l1key="configuration" data-l2key="priorityCondition' + i + 'Monitoring" disabled>';
+            div += '<option value="none" selected>{{Désactivée}}</option>';
+            div += '<option value="event">{{Evènement}}</option>';
+            div += '<option value="cyclic">{{Cyclique}}</option>';
             div += '</select>';
             div += '</div>';
             div += '<div class="col-sm-1">';
@@ -153,7 +155,6 @@ function displaySettingsPanels(_eqLogicType = '') {
             div += '<input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="priorityCondition' + i + 'Name" value="" placeholder="{{Saisir le nom}}"/>';
             div += '</div>';
         	div += '</div>';
-        	div += '<br/>';
         	div += '<br/>';
         } 
         
